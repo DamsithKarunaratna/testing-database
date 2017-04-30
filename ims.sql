@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2017 at 05:36 AM
+-- Generation Time: Apr 30, 2017 at 03:50 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -49,7 +49,7 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`category_ID`, `catName`) VALUES
-(00003, 'toffees'),
+(00003, 'snacks'),
 (00004, 'creams'),
 (00005, 'DVD'),
 (00006, 'VCD'),
@@ -78,7 +78,7 @@ CREATE TABLE `eventlog` (
 
 CREATE TABLE `item` (
   `itemCode` int(4) UNSIGNED ZEROFILL NOT NULL,
-  `category` varchar(30) NOT NULL,
+  `category_ID` int(5) NOT NULL,
   `itemName` varchar(30) NOT NULL,
   `price` int(10) NOT NULL,
   `stock` int(10) NOT NULL,
@@ -89,9 +89,8 @@ CREATE TABLE `item` (
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`itemCode`, `category`, `itemName`, `price`, `stock`, `reorderLevel`) VALUES
-(0001, 'Phones', 'iPhone 6s', 50000, 2000, 200),
-(0006, 'toffees', 'Bulto', 5, 2000, 20);
+INSERT INTO `item` (`itemCode`, `category_ID`, `itemName`, `price`, `stock`, `reorderLevel`) VALUES
+(0007, 3, 'kokis', 50, 200, 10);
 
 -- --------------------------------------------------------
 
@@ -154,9 +153,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`Username`, `Password`, `AccessLevel`) VALUES
-('Saman', 'Saman123', 1),
+('Nayana', 'Nayana123', 2),
 ('Nimal', 'Nimal123', 2),
-('Nayana', 'Nayana123', 2);
+('Saman', 'Saman123', 1);
 
 --
 -- Indexes for dumped tables
@@ -211,7 +210,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `itemCode` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `itemCode` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `supplier`
 --
